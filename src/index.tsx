@@ -1,6 +1,7 @@
 import { Action, ActionPanel, List } from "@raycast/api";
 import { ReactElement, useState } from "react";
 import { URL } from "url";
+import { documentationListV3 as docsList } from "./data/docs";
 
 export default function UserSearchRoot(): ReactElement {
   const [search, setSearch] = useState<string>();
@@ -13,33 +14,70 @@ export default function UserSearchRoot(): ReactElement {
 
 function ListItemSearch(props: { search: string | undefined }): ReactElement | null {
   const s = props.search;
-  if (!s || s.length <= 0) {
-    return (
-      <List.Item
-        title={`Open the Astro Documentation`}
-        icon="astro-search-icon.png"
-        actions={
-          <ActionPanel>
-            <Action.OpenInBrowser
-              title="Open the Astro Documentation"
-              icon="astro-search-icon.png"
-              url="https://docs.astro.build/"
-            />
-          </ActionPanel>
-        }
-      />
-    );
-  }
   return (
-    <List.Item
-      title={`Search '${s}' in the Astro Documentation`}
-      icon="astro-search-icon.png"
-      actions={
-        <ActionPanel>
-          <OpenSearchInBrowserAction search={s} />
-        </ActionPanel>
-      }
-    />
+    <>
+      {(!s || s.length <= 0) && (
+        <>
+          <List.Item
+            title={`Open the Astro Documentation`}
+            icon="astro-search-icon.png"
+            actions={
+              <ActionPanel>
+                <Action.OpenInBrowser
+                  title="Open the Astro Documentation"
+                  icon="astro-search-icon.png"
+                  url="https://docs.astro.build/"
+                />
+              </ActionPanel>
+            }
+          />
+          {docsList.map((docsItem) => (
+            <List.Item
+              title={`${docsItem.title}`}
+              icon={docsItem.icon ?? "astro-search-icon.png"}
+              actions={
+                <ActionPanel>
+                  <Action.OpenInBrowser
+                    title="Open the Astro Documentation"
+                    url={docsItem.url ? docsItem.url : `http://a.stro.cc/${docsItem.title}`}
+                  />
+                </ActionPanel>
+              }
+            />
+          ))}
+        </>
+      )}
+      {s && s.length > 0 && (
+        <>
+          {docsList.map(
+            (docsItem) =>
+              docsItem.title.toLowerCase().trim().includes(s.toLowerCase().trim()) && (
+                <List.Item
+                  title={`${docsItem.title}`}
+                  icon={docsItem.icon ?? "astro-search-icon.png"}
+                  actions={
+                    <ActionPanel>
+                      <Action.OpenInBrowser
+                        title="Open the Astro Documentation"
+                        url={docsItem.url ? docsItem.url : `http://a.stro.cc/${docsItem.title}`}
+                      />
+                    </ActionPanel>
+                  }
+                />
+              )
+          )}
+          <List.Item
+            title={`Search '${s}' in the Astro Documentation`}
+            icon="astro-search-icon.png"
+            actions={
+              <ActionPanel>
+                <OpenSearchInBrowserAction search={s} />
+              </ActionPanel>
+            }
+          />
+        </>
+      )}
+    </>
   );
 }
 
