@@ -84,6 +84,8 @@ function ListItemSearch(props: { search: string | undefined }): ReactElement | n
       )}
       <List.Item
         title={`Open Extension Preferences`}
+        key={"preferences"}
+        keywords={["preferences", "settings"]}
         actions={
           <ActionPanel>
             <Action title="Open Extension Preferences" onAction={openExtensionPreferences} />
