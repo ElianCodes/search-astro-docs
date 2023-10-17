@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "search-astro-docs",
-  "title": "search-astro-docs",
+  "title": "Search Astro Documentation",
   "description": "Search the Astro Documentation right from Raycast",
   "icon": "astro-search-icon.png",
   "author": "ElianCodes",
@@ -15,7 +15,18 @@
       "name": "index",
       "title": "Search Astro Documentation",
       "description": "Search the Astro documentation right from Raycast",
-      "mode": "view"
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "language",
+          "title": "Language Setting",
+          "default": "en",
+          "required": false,
+          "description": "Set the language of your documentation searches",
+          "placeholder": "en",
+          "type": "textfield"
+        }
+      ]
     }
   ],
   "dependencies": {

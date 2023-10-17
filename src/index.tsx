@@ -1,8 +1,9 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, List, openExtensionPreferences } from "@raycast/api";
 import { ReactElement, useState } from "react";
 import { URL } from "url";
 import { documentationListV3 as docsList } from "./data/docs";
 import { searchIncludes } from "./utils";
+
 
 export default function UserSearchRoot(): ReactElement {
   const [search, setSearch] = useState<string>();
@@ -82,6 +83,14 @@ function ListItemSearch(props: { search: string | undefined }): ReactElement | n
           />
         </>
       )}
+      <List.Item
+        title={`Open Extension Preferences`}
+        actions={
+          <ActionPanel>
+            <Action title="Open Extension Preferences" onAction={openExtensionPreferences} />
+          </ActionPanel>
+        }
+      />
     </>
   );
 }
