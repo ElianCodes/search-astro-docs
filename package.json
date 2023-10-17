@@ -24,7 +24,65 @@
           "required": false,
           "description": "Set the language of your documentation searches",
           "placeholder": "en",
-          "type": "textfield"
+          "type": "dropdown",
+          "data": [
+            {
+              "title": "English",
+              "value": "en"
+            },
+            {
+              "title": "Deutsch",
+              "value": "de"
+            },
+            {
+              "title": "Português do Brasil",
+              "value": "pt-br"
+            },
+            {
+              "title": "Español",
+              "value": "es"
+            },
+            {
+              "title": "简体中文",
+              "value": "zh-cn"
+            },
+            {
+              "title": "正體中文",
+              "value": "zh-tw"
+            },
+            {
+              "title": "Français",
+              "value": "fr"
+            },
+            {
+              "title": "हिन्दी",
+              "value": "hi"
+            },
+            {
+              "title": "العربية",
+              "value": "ar"
+            },
+            {
+              "title": "日本語",
+              "value": "ja"
+            },
+            {
+              "title": "한국어",
+              "value": "ko"
+            },
+            {
+              "title": "Polski",
+              "value": "po"
+            },
+            {
+              "title": "Русский",
+              "value": "ru"
+            },
+            {
+              "title": "Italiano",
+              "value": "it"
+            }
+          ]
         }
       ]
     }
