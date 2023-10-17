@@ -1,7 +1,7 @@
 import { DocumentationEntry } from "../types/types";
 import { preferences } from "../utils";
 
-const lang = preferences.language ?? 'en';
+const lang = preferences.language ?? "en";
 
 export const documentationListV3: DocumentationEntry[] = [
   /* Getting Started */
@@ -16,7 +16,10 @@ export const documentationListV3: DocumentationEntry[] = [
   { title: "Islands", url: `https://docs.astro.build/${lang}/concepts/islands/` },
   /* Tutorials */
   { title: "Build a blog (tutorial)", url: `https://docs.astro.build/${lang}/tutorial/0-introduction/` },
-  { title: "Content Collections (tutorial)", url: `https://docs.astro.build/${lang}/tutorials/add-content-collections/` },
+  {
+    title: "Content Collections (tutorial)",
+    url: `https://docs.astro.build/${lang}/tutorials/add-content-collections/`,
+  },
   { title: "View Transitions (tutorial)", url: `https://docs.astro.build/${lang}/tutorials/add-view-transitions/` },
   /* Basics */
   /* Recipes */

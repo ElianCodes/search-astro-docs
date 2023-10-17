@@ -5,7 +5,6 @@ export interface DocumentationEntry {
   icon?: string;
 }
 
-
 export interface Preferences {
   language?: string;
 }

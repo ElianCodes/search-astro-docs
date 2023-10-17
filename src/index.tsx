@@ -4,7 +4,6 @@ import { URL } from "url";
 import { documentationListV3 as docsList } from "./data/docs";
 import { searchIncludes } from "./utils";
 
-
 export default function UserSearchRoot(): ReactElement {
   const [search, setSearch] = useState<string>();
   return (
