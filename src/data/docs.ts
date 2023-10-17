@@ -2,7 +2,7 @@ import { DocumentationEntry } from "../types/types";
 
 export const documentationListV3: DocumentationEntry[] = [
   /* Getting Started */
-  { title: "Getting Started", url: "https://docs.astro.build/en/getting-started/" },
+  { title: "Getting Started", url: "https://docs.astro.build/en/getting-started/", keywords: ['stort', 'sturt'] },
   { title: "Installation", url: "https://docs.astro.build/en/install/auto/" },
   { title: "Editor Setup", url: "https://docs.astro.build/en/editor-setup/" },
   /* Upgrade Guides */

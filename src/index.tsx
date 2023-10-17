@@ -2,6 +2,7 @@ import { Action, ActionPanel, List } from "@raycast/api";
 import { ReactElement, useState } from "react";
 import { URL } from "url";
 import { documentationListV3 as docsList } from "./data/docs";
+import { searchIncludes } from "./utils";
 
 export default function UserSearchRoot(): ReactElement {
   const [search, setSearch] = useState<string>();
@@ -33,6 +34,8 @@ function ListItemSearch(props: { search: string | undefined }): ReactElement | n
           />
           {docsList.map((docsItem) => (
             <List.Item
+              keywords={docsItem.keywords}
+              key={docsItem.title}
               title={`${docsItem.title}`}
               icon={docsItem.icon ?? "astro-search-icon.png"}
               actions={
@@ -51,8 +54,10 @@ function ListItemSearch(props: { search: string | undefined }): ReactElement | n
         <>
           {docsList.map(
             (docsItem) =>
-              docsItem.title.toLowerCase().trim().includes(s.toLowerCase().trim()) && (
+              searchIncludes(docsItem, s) && (
                 <List.Item
+                  keywords={docsItem.keywords}
+                  key={docsItem.title}
                   title={`${docsItem.title}`}
                   icon={docsItem.icon ?? "astro-search-icon.png"}
                   actions={
